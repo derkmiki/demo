@@ -11,7 +11,7 @@ Changelog and New Features
 **************************
 
 v1.0 - Nov. 11, 2016
- - initial release of RESTful Api Demo
+ - initial release 
 
 *******************
 Server Requirements
