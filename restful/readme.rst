@@ -1,15 +1,15 @@
 ###################
-v1.0 Restful API CRUD Using Codeigniter
+v1.0 RESTful API CRUD Using Codeigniter
 ###################
 
-This branch constains CRUD (Create,Retrieve,Update and Delete) oparation in Restful. This has the most simplest code that can be use as base code for Restful API development and demonstration purpose. 
+This branch constains CRUD (Create,Retrieve,Update and Delete) oparation in RESTful. This has the most simplest code that can be use as base code for RESTful API development and demonstration purpose. 
 
 **************************
 Changelog and New Features
 **************************
 
 v1.0 - Nov. 11, 2016
- - initial release of Restful Api Demo
+ - initial release of RESTful Api Demo
 
 *******************
 Server Requirements
