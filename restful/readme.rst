@@ -2,7 +2,7 @@
 v1.0 RESTful API CRUD Using Codeigniter
 ###################
 
-This branch constains CRUD (Create,Retrieve,Update and Delete) oparation in RESTful. This has the most simplest code that can be use as base code for RESTful API development and demonstration purpose. 
+This branch constains CRUD (Create,Retrieve,Update and Delete) oparation in RESTful. This has the most simplest code that can be used as base code for RESTful API development and demonstration purpose. 
 
 https://github.com/chriskacerguis/codeigniter-restserver is the library used by this branch.
 
