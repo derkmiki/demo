@@ -4,7 +4,6 @@ v1.0 SOAP API CRUD Using Codeigniter
 
 This branch constains CRUD (Create,Retrieve,Update and Delete) oparation in SOAP. This has the most simplest code that can be used as base code for SOAP API development and demonstration purpose. I used Nusoap for the SOAP server.
 
-https://github.com/chriskacerguis/codeigniter-restserver is the library used by this branch.
 
 **************************
 Changelog and New Features
