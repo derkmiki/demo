@@ -7,6 +7,19 @@
   <meta name="description" content="The HTML5 Herald">
   <meta name="author" content="SitePoint">
 
+  <style>
+    /*CUSTOM LINK STYLE*/
+    #push-campaign, #subscribed-push-campaign {
+      margin:auto; 
+      width:300px; 
+      border: solid black 1px; 
+      padding: 5px; 
+      border-radius: 25px; 
+      text-align: center;
+    }
+    /*CUSTOM LINK STYLE*/
+
+  </style>
   
   <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
@@ -18,6 +31,7 @@
      var ea_day_repeat = 5/(24*60); 
      //set the second delay here
      var ea_second_delay = 5;
+
 
     function setCookie(key, value, day) {
         var expires = new Date();
@@ -39,22 +53,28 @@
         enable: false
       },
       safari_web_id: 'web.onesignal.auto.2b467c5d-2ccd-4e09-a57b-cb7ab9efd0c0',
-	    promptOptions: {
-	        siteName: 'Motion Detect Plus',
-	        /* Subtitle, limited to 90 characters */
-	        actionMessage: "Kumusta! I want to let you know that you can be up-to-date to our news! Just allow us.",
-	        /* Example notification title */
-	        exampleNotificationTitle: 'We are excited!',
-	        /* Example notification message */
-	        exampleNotificationMessage: 'There is an exciting cool feaure coming watchout!',
-	        /* Text below example notification, limited to 50 characters */
-	        exampleNotificationCaption: 'You can unsubscribe anytime',
-	        /* Accept button text, limited to 15 characters */
-	        acceptButtonText: "ALLOW",
-	        /* Cancel button text, limited to 15 characters */
-	        cancelButtonText: "NO THANKS",
+      promptOptions: {
+          siteName: 'Motion Detect Plus',
+          /* Subtitle, limited to 90 characters */
+          actionMessage: "Kumusta! I want to let you know that you can be up-to-date to our news! Just Click Allow.",
+          /* Example notification title */
+          exampleNotificationTitle: 'We are excited!',
+          /* Example notification message */
+          exampleNotificationMessage: 'There is an exciting cool feaure coming watchout!',
+          /* Text below example notification, limited to 50 characters */
+          exampleNotificationCaption: 'You can unsubscribe anytime',
+          /* Accept button text, limited to 15 characters */
+          acceptButtonText: "ALLOW",
+          /* Cancel button text, limited to 15 characters */
+          cancelButtonText: "NO THANKS",
           autoAcceptTitle: 'Click Allow',
-	    }
+      },
+   welcomeNotification: {
+    disable: false,
+    title: "Welcome amigo!",
+    message: "Thanks amigo for subscribing! Click me for surprise.",
+    url: "http://www.google.com"
+   }   
     }]);
 
     OneSignal.push(function() {
@@ -69,10 +89,55 @@
       }  
     });
 
+    //CUSTOM LINK START FUNCTIONS
+   function subscribe(event) {
+      OneSignal.push(["registerForPushNotifications"]);
+      event.preventDefault();
+  }
+
+   OneSignal.push(function() {
+            // If we're on an unsupported browser, do nothing
+            if (!OneSignal.isPushNotificationsSupported()) {
+                return;
+            }
+            OneSignal.isPushNotificationsEnabled(function(isEnabled) {
+                if (isEnabled) {
+                    // The user is subscribed to notifications
+                    // Don't show anything
+                   document.getElementById('push-campaign').style.display = 'none';
+                   document.getElementById('subscribed-push-campaign').style.display = '';
+
+                } else {
+                    document.getElementById('push-campaign').style.display = '';
+                   document.getElementById('subscribed-push-campaign').style.display = 'none';
+                    document.getElementById("subscribe-link").addEventListener('click', subscribe);
+                    document.getElementById("subscribe-link").style.display = '';
+                }
+            });
+        });
+    //CUSTOM LINK END FUNCTIONS
+
     </script>
 
 </head>
 
 <body>
+
+
+<!-- CUSTOM LINK -->
+<div id="push-campaign" style="display:none; ">
+<b>Push Notification</b>
+<br/>
+<p>Get a chance to win a 50 percent off trip to Boracay by simply clicking <a id="subscribe-link" href="javascript:void(0);">me</a> to enable push notification and follow the instruction on popup page.</p>  
+</div>
+
+<div id="subscribed-push-campaign" style="display:none; ">
+<b>Push Notification</b>
+<br/>
+<p>Thank you for your subscription. Watch out for more news and updates.</p>  
+</div>
+<!-- CUSTOM LINK -->
+
+
 </body>
 </html>
